@@ -1,13 +1,13 @@
 #!/bin/bash
 
 #SBATCH --job-name=gt3x_processing
-#SBATCH --array=1-4%2
+#SBATCH --array=1-100%50
 #SBATCH --output=/ocean/projects/med220004p/shared/data_sandbox/ggir_proc/group1/logs/job_%A_%a.out
 #SBATCH --error=/ocean/projects/med220004p/shared/data_sandbox/ggir_proc/group1/logs/job_%A_%a.err
 #SBATCH --nodes 1
 #SBATCH --partition RM-shared
-#SBATCH --time 2:00:00
-#SBATCH --ntasks-per-node 32
+#SBATCH --time 10:00:00
+#SBATCH --ntasks-per-node 10
 set -x
 # Your singularity container path
 SINGULARITY_CONTAINER=/ocean/projects/med220004p/shared/data_raw/backup_onprem/adam/ggir_test_ggir_test2_v2.sif 

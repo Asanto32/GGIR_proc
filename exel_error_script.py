@@ -27,16 +27,19 @@ def write_to_excel(lines_list, excel_file_path):
 #main part
 # Directory containing the .err files
 directory_path = '/ocean/projects/med220004p/shared/data_sandbox/ggir_proc/group1/logs'
-# Replace 'output.xlsx' with the path where you want to save the Excel file
+# 
 excel_file_path = '/ocean/projects/med220004p/shared/data_sandbox/ggir_proc/group1/logs/err_report.xlsx'
-# Replace N with the number of lines you want to read from the end of each file
+# define N number of lines to keep
 N = 7
 
 # List to hold lines from all files
 all_lines = []
 
-# Loop over all .err files in the directory
-for file_path in glob.glob(f'{directory_path}/*.err'):
+#get sorted list
+err_files = sorted(glob.glob(f'{directory_path}/*.err'))
+
+# Loop over all sorted .err files
+for file_path in err_files:
     # Get the last N lines from the .err file
     lines = get_last_n_lines(file_path, N)
     all_lines.append(lines)
